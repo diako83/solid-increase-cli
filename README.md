@@ -36,3 +36,29 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+https://www.pexels.com/@binyaminmellish/  
+https://images.pexels.com/photos/17840/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
+https://www.pexels.com/pt-br/@binyaminmellish/
+https://www.pexels.com/@oscar-machado-937103/
+https://www.pexels.com/@cottonbro/
+https://www.pexels.com/@cliff-booth/
+https://www.pexels.com/@leonardho/
+https://unsplash.com/@hayleykimdesign
+https://www.pexels.com/pt-br/@ekaterina-bolovtsova/
+https://unsplash.com/@hipcravo
+https://unsplash.com/@inspiredhorizonsdigitalmarketing
+https://unsplash.com/@aloragriffiths
+https://www.pexels.com/pt-br/@scottwebb/
+https://www.pexels.com/pt-br/@mikegles/
+https://www.pexels.com/pt-br/@runffwpu/
+https://www.pexels.com/pt-br/@istvanpszabo/
+https://www.pexels.com/@cesar-perez-224805500/
+<a href="https://www.flaticon.com/free-icons/cancel" title="cancel icons">Cancel icons created by Alfredo Hernandez - Flaticon</a>
+https://www.pexels.com/@ivan-samkov/
+https://www.pexels.com/@maksgelatin/
+https://www.pexels.com/@tima-miroshnichenko/
+https://www.pexels.com/@jim-de-ramos-395808/
+https://www.pexels.com/@ushindinamegabe/
+https://www.pexels.com/@ketut-subiyanto/
+https://www.pexels.com/@mikhail-nilov/
