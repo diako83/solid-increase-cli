@@ -31,7 +31,7 @@ export const postDataWithHeader = async () => {
     console.log("Error:", error);
   }
 };
-
+//--------------Credentials, login, create, update
 export const registerUser = async (url: string, newUser: IRegister) => {
   const response = await fetch(url, {
     method: "POST",
@@ -79,11 +79,64 @@ export const loginUser = async (
   }
 };
 
+export const forgotPassword = async (email: string) => {
+  const request = {
+    email: email,
+  };
+
+  const response = await fetch("http://localhost:9091/auth/sendcode", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(request),
+  });
+
+  if (response.status == 200) {
+    return await response.json();
+    // Handle the response data
+  } else {
+    return response.status;
+  }
+};
+
 export const fetchInitialList = async (url: string) => {
   const res = await fetch(url);
   const data = await res.json();
 
   return data;
+};
+
+export const updatePassword = async (
+  email: string,
+  password: string,
+  code: string
+) => {
+  const update = {
+    name: email,
+    password: password,
+    code: code,
+  };
+
+  const response = await fetch(
+    "http://localhost:9091/auth/change-credentials",
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(update), // Replace with your request payload
+    }
+  );
+
+  if (response.ok) {
+    // Request was successful
+    return await response.json();
+    // Handle the response data
+  } else {
+    // Request failed
+    return response.status;
+  }
 };
 
 // gym requests ----------------------------------

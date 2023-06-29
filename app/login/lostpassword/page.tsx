@@ -7,8 +7,10 @@ import {
   validateEmailFormat,
   validatePasswordFormat,
 } from "@/app/functions/validations/validateinput";
-
+import { forgotPassword, updatePassword } from "@/app/api/hello/route";
+import { useRouter } from "next/navigation";
 const SignUp = () => {
+  const router = useRouter();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
@@ -19,11 +21,51 @@ const SignUp = () => {
     validatePasswordFormat(password, confirmPassword);
   };
 
-  const sendCode = () => {
-    // send code to email
+  const sendCode = (event: { preventDefault: () => void } | undefined) => {
+    let validEmail = validateEmailFormat(email);
+    // let validPassword = validatePasswordFormat(password, confirmPassword);
 
-    //if email has been sent mae show true
-    setShow(true);
+    if (validEmail) {
+      const response = forgotPassword(email);
+
+      response.then((e) => {
+        console.log(e.code);
+
+        if (e.code == "Code sent ") {
+          setShow(true);
+        } else if (e.code == "email dose not  exists")
+          alert("email dose not  exists");
+      });
+    }
+
+    if (event) {
+      event.preventDefault();
+    }
+  };
+
+  const sendUpdate = (event: { preventDefault: () => void } | undefined) => {
+    let validEmail = validateEmailFormat(email);
+    let validPassword = validatePasswordFormat(password, confirmPassword);
+
+    if (validEmail && validPassword) {
+      const response = updatePassword(email, password, code);
+
+      response.then((e) => {
+        console.log(e.response);
+
+        if (e.response == "Password updated ") {
+          router.push("/login");
+        } else if (
+          e.response == "incorrect code " ||
+          e.response == " email dose not  exists"
+        )
+          alert(e.code);
+      });
+    }
+
+    if (event) {
+      event.preventDefault();
+    }
   };
 
   return (
@@ -58,7 +100,7 @@ const SignUp = () => {
                       placeholder=" Email"
                     />
                     <button
-                      onClick={() => sendCode()}
+                      onClick={(e) => sendCode(e)}
                       className="mt-20 px-4 py-2 rounded bg-slate expand text-white font-semibold text-center block w-full focus:outline-none focus:ring focus:ring-offset-2 focus:ring-text-Colorfocus:ring-opacity-80 cursor-pointer text-textColor"
                     >
                       SEND CODE
@@ -101,7 +143,7 @@ const SignUp = () => {
                     </div>
 
                     <button
-                      onClick={() => onSubmit()}
+                      onClick={(e) => sendUpdate(e)}
                       className="mt-20 px-4 py-2 rounded bg-slate expand text-white font-semibold text-center block w-full focus:outline-none focus:ring focus:ring-offset-2 focus:ring-text-Colorfocus:ring-opacity-80 cursor-pointer text-textColor"
                     >
                       UPDATE PASSWORD
